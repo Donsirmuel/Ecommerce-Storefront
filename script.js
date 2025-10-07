@@ -170,6 +170,59 @@ const products = [
   },
 ]
 
+// Imported product merge (from user's pasted import)
+// We add a selected set of products from the imported dataset, map categories to
+// the site's `accessories` category (keep original subcategory), convert prices
+// from smaller-unit floats to NGN integers by multiplying by 1000 (assumption),
+// and avoid duplicates by product name.
+const importedProducts = [
+  { name: "Ankara Print Head Wrap", subcategory: "headwraps", price: 28.0, image: "public/ankara-head-wrap.jpg", description: "Vibrant ankara print head wrap. Versatile styling options for casual and formal looks." },
+  { name: "Coral Bead Necklace Set", subcategory: "jewelry", price: 125.0, image: "public/coral-bead-necklace.jpg", description: "Traditional coral bead necklace with matching earrings and bracelet." },
+  { name: "Gold Plated Statement Earrings", subcategory: "jewelry", price: 42.0, image: "public/gold-statement-earrings.jpg", description: "Bold gold-plated earrings with African-inspired geometric design." },
+  { name: "Beaded Evening Clutch", subcategory: "bags", price: 72.0, image: "public/beaded-evening-clutch.jpg", description: "Handbeaded clutch in gold and black perfect for evening events." },
+  { name: "Ankara Print Tote Bag", subcategory: "bags", price: 58.0, image: "public/ankara-tote-bag.jpg", description: "Spacious tote bag in vibrant ankara print with leather handles." },
+  { name: "Leather & Ankara Crossbody", subcategory: "bags", price: 85.0, image: "public/leather-ankara-crossbody.jpg", description: "Genuine leather crossbody with ankara accents and adjustable strap." },
+  { name: "Woven Straw Handbag", subcategory: "bags", price: 45.0, image: "public/woven-straw-handbag.jpg", description: "Handwoven straw handbag with leather trim. Eco-friendly and stylish." },
+  { name: "Sequin Evening Bag", subcategory: "bags", price: 65.0, image: "public/sequin-evening-bag.jpg", description: "Glamorous sequin evening bag with chain strap." },
+  { name: "Canvas Tote with Ankara Trim", subcategory: "bags", price: 48.0, image: "public/canvas-tote-ankara.jpg", description: "Durable canvas tote with ankara trim. Spacious and eco-friendly." },
+  { name: "Ankara Backpack", subcategory: "bags", price: 78.0, image: "public/ankara-backpack.jpg", description: "Stylish ankara print backpack for everyday use." },
+  { name: "Traditional Waist Beads - Red & Gold", subcategory: "waist-beads", price: 22.0, image: "public/red-gold-waist-beads.jpg", description: "Handstrung waist beads in red and gold." },
+  { name: "Crystal Waist Beads Set", subcategory: "waist-beads", price: 28.0, image: "public/crystal-waist-beads.jpg", description: "Set of crystal waist beads in complementary colors." },
+  { name: "Multi-Color Waist Beads", subcategory: "waist-beads", price: 25.0, image: "public/multicolor-waist-beads.jpg", description: "Vibrant multi-colored waist beads perfect for layering." },
+  { name: "Rose Gold Waist Beads", subcategory: "waist-beads", price: 34.0, image: "public/rose-gold-waist-beads.jpg", description: "Elegant rose gold waist beads. Trendy and romantic." },
+]
+
+// Merge safely: avoid duplicates by name, remap categories/subcategories, convert price to NGN
+(function mergeImported() {
+  try {
+    const existingNames = new Set(products.map((p) => p.name))
+    let nextId = products.reduce((m, p) => Math.max(m, p.id || 0), 0) + 1
+
+    importedProducts.forEach((imp) => {
+      if (existingNames.has(imp.name)) return
+
+      const mapped = {
+        id: nextId++,
+        name: imp.name,
+        category: "accessories", // group imported items under accessories
+        subcategory: imp.subcategory || "accessory",
+        tags: [],
+        priceRange: "accessible",
+        material: "mixed",
+        season: ["all"],
+        price: Math.round((imp.price || 0) * 1000), // convert to NGN (assumption)
+        image: imp.image,
+        description: imp.description || "",
+      }
+
+      products.push(mapped)
+      existingNames.add(mapped.name)
+    })
+  } catch (err) {
+    console.error("Failed to merge imported products:", err)
+  }
+})()
+
 // State
 let currentCategory = "all"
 let currentSubcategory = "all"
