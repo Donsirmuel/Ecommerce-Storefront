@@ -293,7 +293,7 @@ function updateResultsCount(count) {
   if (!resultsCount) return
 
   if (count === 0) {
-    resultsCount.textContent = "No Lagos looks match your filters yet."
+    resultsCount.textContent = "No products match your filters yet."
     return
   }
 
@@ -684,7 +684,7 @@ function setupEventListeners() {
       const originalText = submitButton ? submitButton.textContent : null
 
       if (submitButton) {
-        submitButton.textContent = "Ẹ káàbọ̀, sis"
+        submitButton.textContent = "Thanks — you're in"
         submitButton.disabled = true
       }
 
