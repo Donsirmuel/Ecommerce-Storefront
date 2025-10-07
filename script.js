@@ -273,7 +273,7 @@ function buildProductCard(product) {
     .join("")
 
   return `
-    <div class="product-card" data-product-id="${product.id}">
+  <div class="product-card" data-product-id="${product.id}" role="button" tabindex="0" aria-label="Open ${product.name} details">
       <div class="product-image">
         <img src="${product.image}" alt="${product.name}">
         <div class="product-tags">${tagMarkup}</div>
@@ -331,6 +331,13 @@ function attachProductCardListeners() {
     card.addEventListener("click", () => {
       const productId = Number.parseInt(card.dataset.productId, 10)
       openProductModal(productId)
+    })
+    card.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault()
+        const productId = Number.parseInt(card.dataset.productId, 10)
+        openProductModal(productId)
+      }
     })
   })
 }
@@ -741,6 +748,7 @@ function openProductModal(productId) {
   const quantityInput = document.getElementById("productQuantity")
 
   if (modalImage) modalImage.src = selectedProduct.image
+  if (modalImage) modalImage.alt = selectedProduct.name
   if (modalName) modalName.textContent = selectedProduct.name
   if (modalPrice) modalPrice.textContent = formatCurrency(selectedProduct.price)
   if (modalDescription) modalDescription.textContent = selectedProduct.description

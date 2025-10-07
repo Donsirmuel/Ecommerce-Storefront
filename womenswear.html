@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body data-default-category="womenswear" data-page="womenswear">
+    <a class="sr-only" href="#mainContent">Skip to content</a>
     <div class="breadcrumbs-wrapper">
         <div class="container">
             <ol class="breadcrumbs" aria-label="Breadcrumb">
@@ -153,11 +154,12 @@
     </section>
 
     <!-- Products Section -->
-    <section class="products-section">
+    <main id="mainContent">
+    <section class="products-section" aria-labelledby="womenswearHeading">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">The Womenswear Edit</h2>
-                <p class="section-subtitle">From kaftans dyed in Ibadan to satin-trimmed palazzos, find a Lagos-crafted look for every celebration.</p>
+                <h2 id="womenswearHeading" class="section-title">The Womenswear Edit</h2>
+                <p class="section-subtitle">Find considered silhouettes and elevated basics for day and evening.</p>
             </div>
 
             <div class="products-grid" id="productsGrid">
@@ -165,7 +167,7 @@
             </div>
         </div>
     </section>
-
+    </main>
     <!-- Atelier Notes -->
     <section class="brand-highlights" id="atelier-notes">
         <div class="container">
@@ -492,7 +494,7 @@
             </div>
             <div class="footer-meta">
                 <span>&copy; <span id="footerYear">2025</span> Shindara Couture</span>
-                <span>Atelier • Lagos</span>
+                <span>Atelier • By appointment</span>
                 <span><a href="#">Terms</a> • <a href="#">Privacy</a></span>
             </div>
         </div>
