@@ -10,133 +10,163 @@ const categories = {
   },
 }
 
-// Product Data
+// Product Data (curated womenswear and accessories)
 const products = [
   {
     id: 1,
-    name: "Ireti Sunrise Kaftan",
+    name: "Linen Slip Dress",
     category: "womenswear",
-    subcategory: "kaftans",
-    tags: ["lekki", "linen", "hand-dyed", "sunrise"],
+    subcategory: "dresses",
+    tags: ["linen", "summer", "minimal"],
     priceRange: "signature",
-    material: "linen blend",
-    season: ["dry", "rainy"],
-    price: 98000,
+    material: "linen",
+    season: ["all"],
+    price: 120000,
     image: "public/elegant-linen-shirt-on-hanger.jpg",
-    description:
-      "Hand-dyed in Ibadan with coral piping and a fluid silhouette crafted for dawn devotionals and seaside brunches.",
+    description: "A slip silhouette in breathable linen — cut for relaxed refinement and effortless wear.",
   },
   {
     id: 2,
-    name: "Oba Tailored Palazzo",
+    name: "Tailored Wide-leg Trousers",
     category: "womenswear",
-    subcategory: "tailoring",
-    tags: ["victoria island", "pleated", "evening", "satin"],
+    subcategory: "trousers",
+    tags: ["tailoring", "evening"],
     priceRange: "signature",
-    material: "silk crepe",
-    season: ["dry", "harmattan"],
-    price: 112000,
+    material: "wool blend",
+    season: ["all"],
+    price: 98000,
     image: "public/elegant-wide-leg-trousers.jpg",
-    description:
-      "Obsidian silk crepe pleats with satin waistbands engineered for twilight cocktails from VI rooftops to Tarkwa Bay.",
+    description: "High-waisted palazzo with clean lines and precise pleating for elevated silhouettes.",
   },
   {
     id: 3,
-    name: "Abeni Silk Story Scarf",
+    name: "Silk Story Scarf",
     category: "accessories",
-    subcategory: "headwraps",
-    tags: ["ibuju", "silk", "hand-rolled", "gele"],
+    subcategory: "scarves",
+    tags: ["silk", "accessory"],
     priceRange: "accessible",
-    material: "silk crepe",
+    material: "silk",
     season: ["all"],
-    price: 42000,
+    price: 32000,
     image: "public/elegant-silk-scarf.png",
-    description:
-      "Hand-rolled silk crepe featuring Ìbílẹ̀ motifs, ready to transform from waist sash to gele in minutes.",
+    description: "Hand-rolled silk scarf — versatile as a neck tie, headscarf, or belt.",
   },
   {
     id: 4,
-    name: "Moremi Bridal Boubou",
+    name: "Embellished Evening Gown",
     category: "womenswear",
-    subcategory: "bridal",
-    tags: ["bridal", "crystal", "hand-beaded", "timeless"],
+    subcategory: "gowns",
+    tags: ["evening", "embellished"],
     priceRange: "couture",
-    material: "aso-oke",
-    season: ["dry", "harmattan"],
-    price: 265000,
+    material: "silk blend",
+    season: ["all"],
+    price: 285000,
     image: "public/luxury-linen-throw-blanket.jpg",
-    description:
-      "A couture aso-oke boubou drenched in hand-beaded crystals, designed for court weddings and traditional engagements.",
+    description: "A couture evening gown with subtle embellishment and a fluid trained hem.",
   },
   {
     id: 5,
-    name: "Eko Muse Co-ord Set",
-    category: "womenswear",
-    subcategory: "co-ords",
-    tags: ["ready-to-wear", "lagos", "breathable", "day-to-night"],
-    priceRange: "accessible",
-    material: "adire cotton",
-    season: ["rainy", "dry"],
-    price: 68000,
+    name: "Leather Crossbody Bag",
+    category: "accessories",
+    subcategory: "bags",
+    tags: ["leather", "everyday"],
+    priceRange: "signature",
+    material: "leather",
+    season: ["all"],
+    price: 76000,
     image: "public/minimalist-leather-crossbody-bag.jpg",
-    description:
-      "Soft adire cotton woven in Abeokuta with a cropped blouson and wrap skirt for market runs and evening soirees alike.",
+    description: "A compact crossbody in soft leather with refined hardware and practical pockets.",
   },
   {
     id: 6,
-    name: "Isimi Raffia Tote",
+    name: "Canvas Tote",
     category: "accessories",
     subcategory: "bags",
-    tags: ["raffia", "handwoven", "weekend", "natural"],
+    tags: ["canvas", "market"],
     priceRange: "accessible",
-    material: "raffia",
-    season: ["dry", "rainy"],
+    material: "canvas",
+    season: ["all"],
     price: 36000,
     image: "public/minimalist-canvas-tote-bag.jpg",
-    description:
-      "Handwoven raffia with vegan leather handles and indigo lining, perfect for Lagos island getaways.",
+    description: "A roomy canvas tote with structured base and leather handles for everyday utility.",
   },
   {
     id: 7,
-    name: "Sade Coral Headpiece",
+    name: "Gold Hoop Earrings",
     category: "accessories",
-    subcategory: "gele",
-    tags: ["beaded", "coral", "ceremonial", "statement"],
-    priceRange: "signature",
-    material: "hand-beaded brass",
+    subcategory: "jewelry",
+    tags: ["gold", "statement"],
+    priceRange: "accessible",
+    material: "gold-plated",
     season: ["all"],
-    price: 89000,
+    price: 22000,
     image: "public/elegant-gold-hoop-earrings.jpg",
-    description:
-      "Hand-beaded coral and brass headpiece inspired by Benin royalty, light enough for all-night owambes.",
+    description: "Classic gold hoops with a polished finish — your everyday go-to.",
   },
   {
     id: 8,
-    name: "Adunni Vegan Leather Mules",
+    name: "Cashmere Beanie",
     category: "accessories",
-    subcategory: "jewelry",
-    tags: ["slip-on", "comfort", "evening", "lagos"],
+    subcategory: "knitwear",
+    tags: ["cashmere", "cozy"],
     priceRange: "signature",
-    material: "vegan leather",
-    season: ["dry", "harmattan"],
-    price: 74000,
+    material: "cashmere",
+    season: ["winter"],
+    price: 48000,
     image: "public/luxury-cashmere-beanie.jpg",
-    description:
-      "Palm wine-toned vegan leather mules with cushioned soles, crafted for comfort on dance floors till sunrise.",
+    description: "Sumptuously soft cashmere beanie for colder seasons — elevated basics.",
   },
   {
     id: 9,
-    name: "Oníru Statement Obi Belt",
+    name: "Ceramic Accent Belt",
     category: "accessories",
-    subcategory: "jewelry",
-    tags: ["waist belt", "handcrafted", "accent", "festival"],
+    subcategory: "belts",
+    tags: ["belt", "statement"],
     priceRange: "accessible",
-    material: "aso-oke",
+    material: "ceramic",
     season: ["all"],
-    price: 51000,
+    price: 30000,
     image: "public/modern-ceramic-vase-set.jpg",
-    description:
-      "Aso-oke obi belt with bead-embellished tassels to cinch dresses and kaftans for owambe flair.",
+    description: "An artisanal ceramic-accent belt to cinch dresses and blazers with sculptural flair.",
+  },
+  {
+    id: 10,
+    name: "Linen Throw Wrap",
+    category: "womenswear",
+    subcategory: "wraps",
+    tags: ["linen", "layer"],
+    priceRange: "accessible",
+    material: "linen",
+    season: ["all"],
+    price: 42000,
+    image: "public/luxury-linen-throw-blanket.jpg",
+    description: "A lightweight linen wrap — perfect for travel and layering.",
+  },
+  {
+    id: 11,
+    name: "Merino Knit",
+    category: "womenswear",
+    subcategory: "knitwear",
+    tags: ["merino", "layer"],
+    priceRange: "signature",
+    material: "merino wool",
+    season: ["fall", "winter"],
+    price: 98000,
+    image: "public/luxury-merino-sweater.png",
+    description: "A refined merino sweater with a relaxed fit and durable finish.",
+  },
+  {
+    id: 12,
+    name: "Scented Candle Set",
+    category: "accessories",
+    subcategory: "home",
+    tags: ["scent", "home"],
+    priceRange: "accessible",
+    material: "wax",
+    season: ["all"],
+    price: 18000,
+    image: "public/luxury-scented-candle-set.jpg",
+    description: "A trio of scented candles — a finishing touch for any dressing room or home.",
   },
 ]
 
@@ -285,8 +315,8 @@ function renderProducts() {
   if (filtered.length === 0) {
     grid.innerHTML = `
       <div class="no-products">
-        <h3>No Lagos looks found</h3>
-        <p>Loosen a filter or explore another category to reveal more Shindara muses.</p>
+        <h3>No products found</h3>
+        <p>Try removing filters or exploring a different category to discover more pieces.</p>
       </div>
     `
     return
@@ -941,12 +971,12 @@ function placeOrder() {
 
 // Persistence
 function saveCartToStorage() {
-  localStorage.setItem("shindara_cart", JSON.stringify(cart))
+  localStorage.setItem("boutique_cart", JSON.stringify(cart))
 }
 
 function loadCartFromStorage() {
   try {
-    const saved = localStorage.getItem("shindara_cart")
+  const saved = localStorage.getItem("boutique_cart")
     if (!saved) return
     cart = JSON.parse(saved) || []
     updateCartUI()
