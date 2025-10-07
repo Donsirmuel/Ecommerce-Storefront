@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shindara Couture  Lagos Atelier</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body data-default-category="all" data-page="home">
+    <div class="breadcrumbs-wrapper">
+        <div class="container">
+            <ol class="breadcrumbs" aria-label="Breadcrumb">
+                <li><a href="index.html">Home</a></li>
+                <li class="current" aria-current="page">Lagos Edit</li>
+            </ol>
+        </div>
+    </div>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="#" class="logo">SHINDARA COUTURE</a>
+                
+                <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+
+                <nav class="nav">
+                    <div class="site-menu">
+                        <a href="index.html" class="site-link current">Home</a>
+                        <a href="womenswear.html" class="site-link">Womenswear</a>
+                        <a href="accessories.html" class="site-link">Accessories</a>
+                        <a href="atelier.html" class="site-link">Atelier</a>
+                    </div>
+                </nav>
+
+                <div class="header-actions">
+                    <div class="search-container">
+                        <input type="text" id="searchInput" placeholder="Search styles, fabrics, or moods..." class="search-input">
+                        <svg class="search-icon" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="8" cy="8" r="6"/>
+                            <path d="M13 13l5 5"/>
+                        </svg>
+                    </div>
+                    <button class="icon-btn cart-toggle" aria-label="Shopping cart">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M1 1h3l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L19 6H5"/>
+                        </svg>
+                        <span class="cart-count">0</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">Lagos-made luxury for the feminine muse</h1>
+            <p class="hero-subtitle">Celebrate Nigerian artistry with fluid tailoring, artful beadwork, and fabrics that honour every curve and cadence.</p>
+            <div class="hero-actions">
+                <button class="btn btn-primary hero-cta">Shop the Lagos Edit</button>
+                <a href="#lookbook" class="btn btn-outline hero-secondary">Explore the Asoebi Lookbook</a>
+            </div>
+        </div>
+        <div class="hero-image">
+            <img src="public/hero-boutique-collection.jpg" alt="Shindara Couture muses in Lagos">
+        </div>
+    </section>
+
+    <!-- Category Filter (Mobile) -->
+    <div class="category-filter-mobile">
+        <select id="mobile-category" class="category-select">
+            <option value="all">All</option>
+            <option value="womenswear">Womenswear</option>
+            <option value="accessories">Accessories</option>
+        </select>
+    </div>
+
+    <!-- Advanced Filters Section -->
+    <section class="filters-section">
+        <div class="container">
+            <div class="filters-bar">
+                <div class="filters-bar-left">
+                    <button class="filter-toggle" type="button" aria-expanded="false" aria-controls="filtersPanel">
+                        <span class="filter-toggle-label">Filters</span>
+                        <span class="filter-toggle-icon" aria-hidden="true">▾</span>
+                    </button>
+                    <span id="resultsCount" class="filters-count">Loading looks...</span>
+                </div>
+                <button class="btn btn-outline btn-sm filters-clear" type="button" onclick="clearAllFilters()">Clear All Filters</button>
+            </div>
+
+            <div class="filters-panel" id="filtersPanel" data-collapsed="true">
+                <div class="filters-controls">
+                    <div class="filter-group">
+                        <label for="subcategoryFilter">Subcategory</label>
+                        <select id="subcategoryFilter" class="filter-select" disabled>
+                            <option value="all">All Subcategories</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label for="priceFilter">Price Range</label>
+                        <select id="priceFilter" class="filter-select">
+                            <option value="all">All Prices</option>
+                            <option value="accessible">Accessible (₦35k - ₦60k)</option>
+                            <option value="signature">Signature (₦60k - ₦120k)</option>
+                            <option value="couture">Couture (₦120k+)</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label for="materialFilter">Material</label>
+                        <select id="materialFilter" class="filter-select">
+                            <option value="all">All Materials</option>
+                            <option value="adire cotton">Adire Cotton</option>
+                            <option value="silk crepe">Silk Crepe</option>
+                            <option value="linen blend">Linen Blend</option>
+                            <option value="aso-oke">Aso-Oke</option>
+                            <option value="raffia">Raffia</option>
+                            <option value="vegan leather">Vegan Leather</option>
+                            <option value="hand-beaded brass">Hand-beaded Brass</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label for="seasonFilter">Season</label>
+                        <select id="seasonFilter" class="filter-select">
+                            <option value="all">All Seasons</option>
+                            <option value="dry">Dry Season</option>
+                            <option value="rainy">Rainy Season</option>
+                            <option value="harmattan">Harmattan</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label for="sortSelect">Sort By</label>
+                        <select id="sortSelect" class="filter-select">
+                            <option value="default">Default</option>
+                            <option value="price-low">Price: Low to High</option>
+                            <option value="price-high">Price: High to Low</option>
+                            <option value="name-az">Name: A to Z</option>
+                            <option value="name-za">Name: Z to A</option>
+                            <option value="newest">Newest First</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Shindara Lagos Edit</h2>
+                <p class="section-subtitle">A curated wardrobe of asoebi showstoppers, ready-to-wear ease, and keepsake accessories tailored for Nigerian celebrations.</p>
+            </div>
+
+            <div class="products-grid" id="productsGrid">
+                <!-- Products will be dynamically inserted here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Lookbook Section -->
+    <section class="lookbook-section" id="lookbook">
+        <div class="container">
+            <div class="lookbook-intro">
+                <h2 class="section-title">Lookbook: Ẹwà of Lagos</h2>
+                <p class="section-subtitle">Three feminine stories photographed from Lekki to Victoria Island, styled for the woman who owns every entrance.</p>
+            </div>
+            <div class="lookbook-grid">
+                <article class="lookbook-card">
+                    <div class="lookbook-image" style="background-image: url('public/elegant-linen-shirt-on-hanger.jpg');"></div>
+                    <div class="lookbook-content">
+                        <span class="lookbook-tag">Dawn in Lekki</span>
+                        <h3>Ireti Sunrise Kaftan</h3>
+                        <p>Soft linen blend, hand-dyed in Ibadan and detailed with coral piping for sunrise devotionals.</p>
+                    </div>
+                </article>
+                <article class="lookbook-card">
+                    <div class="lookbook-image" style="background-image: url('public/elegant-wide-leg-trousers.jpg');"></div>
+                    <div class="lookbook-content">
+                        <span class="lookbook-tag">Victoria Island Dusk</span>
+                        <h3>Oba Tailored Palazzo</h3>
+                        <p>Precision pleats meet satin waistbands, engineered for after-hours cocktails at Tarkwa Bay.</p>
+                    </div>
+                </article>
+                <article class="lookbook-card">
+                    <div class="lookbook-image" style="background-image: url('public/elegant-silk-scarf.png');"></div>
+                    <div class="lookbook-content">
+                        <span class="lookbook-tag">Midnight Asoebi</span>
+                        <h3>Abeni Silk Story Scarf</h3>
+                        <p>Hand-rolled silk crepe featuring Ìbílẹ̀ motifs, ready to re-style as a gele or waist sash.</p>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Brand Highlights -->
+    <section class="brand-highlights">
+        <div class="container">
+            <div class="highlights-grid">
+                <div class="highlight">
+                    <div class="highlight-icon" aria-hidden="true">✧</div>
+                    <h3>Made in Nigeria</h3>
+                    <p>Handcrafted in our Yaba atelier with fabrics sourced from Abeokuta dyers and Northern weavers.</p>
+                </div>
+                <div class="highlight">
+                    <div class="highlight-icon" aria-hidden="true">∞</div>
+                    <h3>Atelier Fit Promise</h3>
+                    <p>Complimentary fittings in Lagos with optional virtual sessions for sisters across the diaspora.</p>
+                </div>
+                <div class="highlight">
+                    <div class="highlight-icon" aria-hidden="true">☾</div>
+                    <h3>Cultural Capsules</h3>
+                    <p>Limited asoebi collectives released around owambe season, featuring collaborative beadwork.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter-section">
+        <div class="container">
+            <div class="newsletter-card">
+                <div class="newsletter-copy">
+                    <h2>Stay in the Shindara sisterhood</h2>
+                    <p>Receive owambe styling memos, private Lagos trunk show invites, and first look at bridal capsules.</p>
+                </div>
+                <form class="newsletter-form">
+                    <label for="newsletterEmail" class="sr-only">Email address</label>
+                    <input type="email" id="newsletterEmail" placeholder="you@example.com" required>
+                    <button type="submit" class="btn btn-primary">Join the circle</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Detail Modal -->
+    <div class="modal" id="productModal">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <button class="modal-close" aria-label="Close modal">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M18 6L6 18M6 6l12 12"/>
+                </svg>
+            </button>
+            <div class="modal-body">
+                <div class="modal-image">
+                    <img id="modalProductImage" src="/placeholder.svg" alt="">
+                </div>
+                <div class="modal-details">
+                    <h2 id="modalProductName" class="modal-product-name"></h2>
+                    <p id="modalProductPrice" class="modal-product-price"></p>
+                    <p id="modalProductDescription" class="modal-product-description"></p>
+                    
+                    <div class="product-options">
+                        <div class="option-group">
+                            <label for="productSize">Size</label>
+                            <select id="productSize" class="option-select">
+                                <option>Small</option>
+                                <option selected>Medium</option>
+                                <option>Large</option>
+                                <option>X-Large</option>
+                            </select>
+                        </div>
+                        
+                        <div class="option-group">
+                            <label for="productQuantity">Quantity</label>
+                            <div class="quantity-selector">
+                                <button class="quantity-btn" data-action="decrease">−</button>
+                                <input type="number" id="productQuantity" value="1" min="1" max="10">
+                                <button class="quantity-btn" data-action="increase">+</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="btn btn-primary btn-block" id="addToCartBtn">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Shopping Cart Sidebar -->
+    <div class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header">
+            <h3>Shopping Cart</h3>
+            <button class="cart-close" aria-label="Close cart">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M18 6L6 18M6 6l12 12"/>
+                </svg>
+            </button>
+        </div>
+
+        <div class="cart-items" id="cartItems">
+            <!-- Cart items will be dynamically inserted here -->
+        </div>
+
+        <div class="cart-empty" id="cartEmpty">
+            <svg width="64" height="64" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M8 8h8l8 40h24l6-24H16"/>
+            </svg>
+            <p>Your cart is empty</p>
+        </div>
+
+        <div class="cart-footer" id="cartFooter">
+            <div class="cart-subtotal">
+                <span>Subtotal</span>
+                <span id="cartSubtotal">₦0</span>
+            </div>
+            <button class="btn btn-primary btn-block" id="checkoutBtn">Proceed to Checkout</button>
+        </div>
+    </div>
+
+    <!-- Checkout Page -->
+    <div class="checkout-page" id="checkoutPage">
+        <div class="checkout-container">
+            <button class="back-btn" id="backToShop">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M15 10H5M5 10l5 5M5 10l5-5"/>
+                </svg>
+                Back to Shop
+            </button>
+
+            <div class="checkout-content">
+                <div class="checkout-main">
+                    <h1 class="checkout-title">Checkout</h1>
+
+                    <!-- Step 1: Contact Information -->
+                    <div class="checkout-step">
+                        <div class="step-header">
+                            <span class="step-number">1</span>
+                            <h2>Contact Information</h2>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" placeholder="you@example.com" required>
+                        </div>
+                    </div>
+
+                    <!-- Step 2: Shipping Address -->
+                    <div class="checkout-step">
+                        <div class="step-header">
+                            <span class="step-number">2</span>
+                            <h2>Shipping Address</h2>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="firstName">First Name</label>
+                                <input type="text" id="firstName" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="lastName">Last Name</label>
+                                <input type="text" id="lastName" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="address">Address</label>
+                            <input type="text" id="address" placeholder="Street address" required>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="city">City</label>
+                                <input type="text" id="city" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="state">State</label>
+                                <input type="text" id="state" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="zip">ZIP Code</label>
+                                <input type="text" id="zip" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 3: Payment -->
+                    <div class="checkout-step">
+                        <div class="step-header">
+                            <span class="step-number">3</span>
+                            <h2>Payment Information</h2>
+                        </div>
+                        <div class="payment-info">
+                            <p class="payment-note">Enter your payment details below. All transactions are secure and encrypted.</p>
+                        </div>
+                        <div class="form-group">
+                            <label for="cardNumber">Card Number</label>
+                            <input type="text" id="cardNumber" placeholder="1234 5678 9012 3456" maxlength="19" required>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="expiry">Expiry Date</label>
+                                <input type="text" id="expiry" placeholder="MM / YY" maxlength="7" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="cvc">CVC</label>
+                                <input type="text" id="cvc" placeholder="123" maxlength="4" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="btn btn-primary btn-block" id="placeOrderBtn">Place Order</button>
+                </div>
+
+                <!-- Order Summary Sidebar -->
+                <div class="order-summary">
+                    <h3>Order Summary</h3>
+                    <div class="summary-items" id="summaryItems">
+                        <!-- Order items will be dynamically inserted here -->
+                    </div>
+                    <div class="summary-totals">
+                        <div class="summary-row">
+                            <span>Subtotal</span>
+                            <span id="summarySubtotal">₦0</span>
+                        </div>
+                        <div class="summary-row">
+                            <span>Shipping</span>
+                            <span id="summaryShipping">₦0</span>
+                        </div>
+                        <div class="summary-row">
+                            <span>Tax</span>
+                            <span id="summaryTax">₦0</span>
+                        </div>
+                        <div class="summary-row summary-total">
+                            <span>Total</span>
+                            <span id="summaryTotal">₦0</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Order Confirmation Page -->
+    <div class="confirmation-page" id="confirmationPage">
+        <div class="confirmation-container">
+            <div class="confirmation-content">
+                <div class="confirmation-icon">
+                    <svg width="64" height="64" viewBox="0 0 64 64" fill="none">
+                        <circle cx="32" cy="32" r="30" stroke="currentColor" stroke-width="3"/>
+                        <path d="M20 32l8 8 16-16" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+                    </svg>
+                </div>
+                <h1 class="confirmation-title">Order Confirmed!</h1>
+                <p class="confirmation-message">Thank you for your purchase. Your order has been received and is being processed.</p>
+                
+                <div class="confirmation-details">
+                    <div class="detail-row">
+                        <span>Order Number</span>
+                        <strong id="orderNumber"></strong>
+                    </div>
+                    <div class="detail-row">
+                        <span>Email</span>
+                        <strong id="orderEmail"></strong>
+                    </div>
+                    <div class="detail-row">
+                        <span>Total</span>
+                        <strong id="orderTotal"></strong>
+                    </div>
+                </div>
+
+                <p class="confirmation-note">A confirmation email has been sent to your email address with order details and tracking information.</p>
+
+                <button class="btn btn-primary" id="continueShopping">Continue Shopping</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+<footer>
+    <div class="footer-container">
+    <p>&copy; 2025 SHINDARA COUTURE. All rights reserved.</p>
+    </div>
+    <footer>
+        <div class="container footer-inner">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h3>Shindara Couture</h3>
+                    <p>Lagos-made luxury honouring Yoruba heritage, feminine silhouettes, and artisanal beadwork.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Shop</h4>
+                    <ul class="footer-links">
+                        <li><a href="womenswear.html">Womenswear</a></li>
+                        <li><a href="accessories.html">Accessories</a></li>
+                        <li><a href="#lookbook">Lookbook</a></li>
+                        <li><a href="atelier.html">Atelier</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>About</h4>
+                    <ul class="footer-links">
+                        <li><a href="atelier.html#craft-philosophy">Craft Philosophy</a></li>
+                        <li><a href="atelier.html#atelier-rituals">Rituals</a></li>
+                        <li><a href="atelier.html#atelier-visit">Book Visit</a></li>
+                        <li><a href="#">Press Kit</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Support</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Size Guide</a></li>
+                        <li><a href="#">Shipping & Returns</a></li>
+                        <li><a href="#">Care Instructions</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col newsletter-mini">
+                    <h4>Studio Notes</h4>
+                    <form>
+                        <input type="email" placeholder="email for drops" aria-label="Email for studio notes" required>
+                        <button type="submit">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-meta">
+                <span>&copy; <span id="footerYear">2025</span> Shindara Couture</span>
+                <span>Made with ♥ in Lagos</span>
+                <span><a href="#">Terms</a> • <a href="#">Privacy</a></span>
+            </div>
+        </div>
+    </footer>
