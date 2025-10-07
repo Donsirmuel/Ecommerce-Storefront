@@ -275,7 +275,7 @@ function buildProductCard(product) {
   return `
   <div class="product-card" data-product-id="${product.id}" role="button" tabindex="0" aria-label="Open ${product.name} details">
       <div class="product-image">
-        <img src="${product.image}" alt="${product.name}">
+        <img src="${product.image}" loading="lazy" alt="${product.imageAlt || product.name}">
         <div class="product-tags">${tagMarkup}</div>
       </div>
       <div class="product-info">
@@ -283,6 +283,10 @@ function buildProductCard(product) {
         <h3 class="product-name">${product.name}</h3>
         <div class="product-price">${formatCurrency(product.price)} <span class="price-range">${formatPriceRange(product.priceRange)}</span></div>
         <div class="product-material">${product.material}</div>
+        <div class="card-actions">
+          <button class="btn btn-outline view-details" data-id="${product.id}" aria-label="View details for ${product.name}">View</button>
+          <button class="btn btn-primary btn-quick" data-id="${product.id}" aria-label="Quick add ${product.name} to cart">Add</button>
+        </div>
       </div>
     </div>
   `
@@ -328,7 +332,8 @@ function renderProducts() {
 
 function attachProductCardListeners() {
   document.querySelectorAll(".product-card").forEach((card) => {
-    card.addEventListener("click", () => {
+    // open details when the card is double-clicked or via keyboard on the card itself
+    card.addEventListener("dblclick", () => {
       const productId = Number.parseInt(card.dataset.productId, 10)
       openProductModal(productId)
     })
@@ -340,6 +345,55 @@ function attachProductCardListeners() {
       }
     })
   })
+
+  // button-level handlers (view and quick add)
+  document.querySelectorAll('.view-details').forEach((btn) => {
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation()
+      const id = Number.parseInt(btn.dataset.id, 10)
+      openProductModal(id)
+    })
+  })
+
+  document.querySelectorAll('.btn-quick').forEach((btn) => {
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation()
+      const id = Number.parseInt(btn.dataset.id, 10)
+      addToCartQuick(id)
+    })
+  })
+}
+
+// Quick-add function: add 1 item with default size and show toast
+function addToCartQuick(productId) {
+  const product = products.find((p) => p.id === productId)
+  if (!product) return
+
+  const size = 'Medium'
+  const existing = cart.find((c) => c.id === productId && c.size === size)
+  if (existing) {
+    existing.quantity += 1
+  } else {
+    cart.push({ ...product, size, quantity: 1 })
+  }
+
+  saveCartToStorage()
+  updateCartUI()
+  showToast(`${product.name} added to cart`)
+}
+
+// Toast notification
+function showToast(message) {
+  let toast = document.getElementById('siteToast')
+  if (!toast) {
+    toast = document.createElement('div')
+    toast.id = 'siteToast'
+    toast.className = 'site-toast'
+    document.body.appendChild(toast)
+  }
+  toast.textContent = message
+  toast.classList.add('visible')
+  setTimeout(() => toast.classList.remove('visible'), 2200)
 }
 
 function syncCategoryControls() {
