@@ -8,6 +8,10 @@ const categories = {
     name: "Accessories",
     subcategories: ["gele", "bags", "jewelry", "headwraps"],
   },
+  services: {
+    name: "Services",
+    subcategories: ["bespoke", "alterations", "consultation"],
+  },
 }
 
 // Product Data (curated womenswear and accessories)
@@ -17,11 +21,13 @@ const products = [
     name: "Linen Slip Dress",
     category: "womenswear",
     subcategory: "dresses",
+    badges: ["New"],
     tags: ["linen", "summer", "minimal"],
     priceRange: "signature",
     material: "linen",
     season: ["all"],
     price: 120000,
+    stock: 6,
     image: "public/elegant-linen-shirt-on-hanger.jpg",
     description: "A slip silhouette in breathable linen — cut for relaxed refinement and effortless wear.",
   },
@@ -43,11 +49,13 @@ const products = [
     name: "Silk Story Scarf",
     category: "accessories",
     subcategory: "scarves",
+    badges: [],
     tags: ["silk", "accessory"],
     priceRange: "accessible",
     material: "silk",
     season: ["all"],
     price: 32000,
+    stock: 18,
     image: "public/elegant-silk-scarf.png",
     description: "Hand-rolled silk scarf — versatile as a neck tie, headscarf, or belt.",
   },
@@ -57,11 +65,13 @@ const products = [
     category: "womenswear",
     subcategory: "gowns",
     tags: ["evening", "embellished"],
+    badges: ["Bespoke"],
     priceRange: "couture",
     material: "silk blend",
     season: ["all"],
     price: 285000,
     image: "public/luxury-linen-throw-blanket.jpg",
+    stock: 2,
     description: "A couture evening gown with subtle embellishment and a fluid trained hem.",
   },
   {
@@ -69,11 +79,13 @@ const products = [
     name: "Leather Crossbody Bag",
     category: "accessories",
     subcategory: "bags",
+    badges: ["Limited"],
     tags: ["leather", "everyday"],
     priceRange: "signature",
     material: "leather",
     season: ["all"],
     price: 76000,
+    stock: 4,
     image: "public/minimalist-leather-crossbody-bag.jpg",
     description: "A compact crossbody in soft leather with refined hardware and practical pockets.",
   },
@@ -126,6 +138,7 @@ const products = [
     material: "ceramic",
     season: ["all"],
     price: 30000,
+    stock: 0, // intentionally out of stock to show sold-out handling
     image: "public/modern-ceramic-vase-set.jpg",
     description: "An artisanal ceramic-accent belt to cinch dresses and blazers with sculptural flair.",
   },
@@ -165,8 +178,41 @@ const products = [
     material: "wax",
     season: ["all"],
     price: 18000,
+    stock: 12,
     image: "public/luxury-scented-candle-set.jpg",
     description: "A trio of scented candles — a finishing touch for any dressing room or home.",
+  },
+
+  // Services as products so they appear in the storefront and can be added to cart
+  {
+    id: 1001,
+    name: "Bespoke Fitting — In-Studio",
+    category: "services",
+    subcategory: "bespoke",
+    badges: ["Service"],
+    tags: ["fitting", "bespoke"],
+    priceRange: "signature",
+    material: "service",
+    season: ["all"],
+    price: 25000,
+    stock: 9999, // unlimited capacity, treated differently at checkout
+    image: "public/atelier-fitting.jpg",
+    description: "Private bespoke fitting at our atelier. Includes consultation and measuring; travel fees may apply.",
+  },
+  {
+    id: 1002,
+    name: "Express Alterations — Per Item",
+    category: "services",
+    subcategory: "alterations",
+    badges: ["Service"],
+    tags: ["alterations"],
+    priceRange: "accessible",
+    material: "service",
+    season: ["all"],
+    price: 8000,
+    stock: 9999,
+    image: "public/atelier-needle.jpg",
+    description: "Quick alteration service for hems, minor adjustments, and simple tailoring requests.",
   },
 ]
 
@@ -324,12 +370,25 @@ function buildProductCard(product) {
     .slice(0, 2)
     .map((tag) => `<span class="tag">${tag}</span>`)
     .join("")
+  // badges
+  const badges = (product.badges || [])
+    .map((b) => `<span class="product-badge">${b}</span>`)
+    .join("")
+
+  // stock / availability
+  const inStock = typeof product.stock === 'number' ? product.stock > 0 : true
+  const stockLabel = inStock ? `<span class="stock in">In stock${typeof product.stock === 'number' ? ` • ${product.stock}` : ''}</span>` : `<span class="stock out">Sold out</span>`
+
+  const addButton = inStock
+    ? `<button type="button" class="btn btn-primary btn-quick" data-id="${product.id}" aria-label="Quick add ${product.name} to cart">Add</button>`
+    : `<button type="button" class="btn btn-primary btn-quick disabled" data-id="${product.id}" aria-label="${product.name} is sold out" disabled>Sold out</button>`
 
   return `
   <div class="product-card" data-product-id="${product.id}" role="button" tabindex="0" aria-label="Open ${product.name} details">
       <div class="product-image">
         <img src="${product.image}" loading="lazy" alt="${product.imageAlt || product.name}">
         <div class="product-tags">${tagMarkup}</div>
+        <div class="product-badges">${badges}${stockLabel}</div>
       </div>
       <div class="product-info">
         <div class="product-category">${categoryLabel} • ${subcategoryLabel}</div>
@@ -337,8 +396,8 @@ function buildProductCard(product) {
         <div class="product-price">${formatCurrency(product.price)} <span class="price-range">${formatPriceRange(product.priceRange)}</span></div>
         <div class="product-material">${product.material}</div>
         <div class="card-actions">
-          <button class="btn btn-outline view-details" data-id="${product.id}" aria-label="View details for ${product.name}">View</button>
-          <button class="btn btn-primary btn-quick" data-id="${product.id}" aria-label="Quick add ${product.name} to cart">Add</button>
+          <button type="button" class="btn btn-outline view-details" data-id="${product.id}" aria-label="View details for ${product.name}">View</button>
+          ${addButton}
         </div>
       </div>
     </div>
@@ -422,13 +481,28 @@ function addToCartQuick(productId) {
   const product = products.find((p) => p.id === productId)
   if (!product) return
 
+  // Respect stock if defined
+  const stock = typeof product.stock === 'number' ? product.stock : Infinity
+  if (stock <= 0) {
+    showToast(`${product.name} is sold out`)
+    return
+  }
+
   const size = 'Medium'
   const existing = cart.find((c) => c.id === productId && c.size === size)
   if (existing) {
+    // check if adding exceeds stock
+    if (existing.quantity + 1 > stock) {
+      showToast(`Only ${stock} left of ${product.name}`)
+      return
+    }
     existing.quantity += 1
   } else {
     cart.push({ ...product, size, quantity: 1 })
   }
+
+  // decrement stock locally for immediate UX feedback (not persisted across reload)
+  if (typeof product.stock === 'number') product.stock = Math.max(0, product.stock - 1)
 
   saveCartToStorage()
   updateCartUI()

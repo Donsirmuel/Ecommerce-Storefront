@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Shindara Couture — considered womenswear: tailored separates, kaftans, and elevated basics crafted from luxurious fabrics.">
     <title>Womenswear — Shindara Couture</title>
+    <link rel="preload" href="public/hero-image.jpeg" as="image">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body data-default-category="womenswear" data-page="womenswear">
@@ -22,13 +24,13 @@
             <div class="header-content">
                 <a href="index.html" class="logo">SHINDARA COUTURE</a>
                 
-                <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                <button type="button" class="mobile-menu-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="siteNav">
                     <span></span>
                     <span></span>
                     <span></span>
                 </button>
 
-                <nav class="nav">
+                <nav id="siteNav" class="nav" role="navigation">
                     <div class="site-menu">
                         <a href="index.html" class="site-link">Home</a>
                         <a href="womenswear.html" class="site-link current">Womenswear</a>
@@ -39,13 +41,13 @@
 
                 <div class="header-actions">
                     <div class="search-container">
-                        <input type="text" id="searchInput" placeholder="Search silhouettes or fabrics..." class="search-input">
+                        <input type="text" id="searchInput" name="q" aria-label="Search silhouettes or fabrics" placeholder="Search silhouettes or fabrics..." class="search-input">
                         <svg class="search-icon" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2">
                             <circle cx="8" cy="8" r="6"/>
                             <path d="M13 13l5 5"/>
                         </svg>
                     </div>
-                    <button class="icon-btn cart-toggle" aria-label="Shopping cart">
+                    <button type="button" class="icon-btn cart-toggle" aria-label="Shopping cart">
                         <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M1 1h3l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L19 6H5"/>
                         </svg>
@@ -67,7 +69,7 @@
             </div>
         </div>
         <div class="hero-image">
-            <img src="public/hero-image.jpeg" alt="Womenswear hero image">
+            <img src="public/hero-image.jpeg" alt="Womenswear hero image" loading="lazy">
         </div>
     </section>
 
@@ -85,13 +87,13 @@
         <div class="container">
             <div class="filters-bar">
                 <div class="filters-bar-left">
-                    <button class="filter-toggle" type="button" aria-expanded="false" aria-controls="filtersPanel">
+                    <button type="button" class="filter-toggle" aria-expanded="false" aria-controls="filtersPanel">
                         <span class="filter-toggle-label">Filters</span>
                         <span class="filter-toggle-icon" aria-hidden="true">▾</span>
                     </button>
                     <span id="resultsCount" class="filters-count">Loading looks...</span>
                 </div>
-                <button class="btn btn-outline btn-sm filters-clear" type="button" onclick="clearAllFilters()">Clear All Filters</button>
+                <button type="button" class="btn btn-outline btn-sm filters-clear" onclick="clearAllFilters()">Clear All Filters</button>
             </div>
 
             <div class="filters-panel" id="filtersPanel" data-collapsed="true">
@@ -235,9 +237,9 @@
                     <h2>Join the womenswear circle</h2>
                     <p>Get atelier diaries, fabric drops, and VIP invites to upcoming bridal capsules.</p>
                 </div>
-                <form class="newsletter-form">
+                <form class="newsletter-form" action="#" method="post" aria-label="Join the womenswear newsletter">
                     <label for="newsletterEmail" class="sr-only">Email address</label>
-                    <input type="email" id="newsletterEmail" placeholder="you@example.com" required>
+                    <input type="email" id="newsletterEmail" name="email" aria-label="Email address" placeholder="you@example.com" required>
                     <button type="submit" class="btn btn-primary">Join the circle</button>
                 </form>
             </div>
@@ -248,14 +250,14 @@
     <div class="modal" id="productModal">
         <div class="modal-overlay"></div>
         <div class="modal-content">
-            <button class="modal-close" aria-label="Close modal">
+            <button type="button" class="modal-close" aria-label="Close modal">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <path d="M18 6L6 18M6 6l12 12"/>
                 </svg>
             </button>
             <div class="modal-body">
                 <div class="modal-image">
-                    <img id="modalProductImage" src="/placeholder.svg" alt="">
+                    <img id="modalProductImage" src="/placeholder.svg" alt="Product image">
                 </div>
                 <div class="modal-details">
                     <h2 id="modalProductName" class="modal-product-name"></h2>
@@ -276,14 +278,14 @@
                         <div class="option-group">
                             <label for="productQuantity">Quantity</label>
                             <div class="quantity-selector">
-                                <button class="quantity-btn" data-action="decrease">−</button>
+                                <button type="button" class="quantity-btn" data-action="decrease">−</button>
                                 <input type="number" id="productQuantity" value="1" min="1" max="10">
-                                <button class="quantity-btn" data-action="increase">+</button>
+                                <button type="button" class="quantity-btn" data-action="increase">+</button>
                             </div>
                         </div>
                     </div>
 
-                    <button class="btn btn-primary btn-block" id="addToCartBtn">Add to Cart</button>
+                    <button type="button" class="btn btn-primary btn-block" id="addToCartBtn">Add to Cart</button>
                 </div>
             </div>
         </div>
@@ -293,7 +295,7 @@
     <div class="cart-sidebar" id="cartSidebar">
         <div class="cart-header">
             <h3>Shopping Cart</h3>
-            <button class="cart-close" aria-label="Close cart">
+            <button type="button" class="cart-close" aria-label="Close cart">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <path d="M18 6L6 18M6 6l12 12"/>
                 </svg>
@@ -311,19 +313,19 @@
             <p>Your cart is empty</p>
         </div>
 
-        <div class="cart-footer" id="cartFooter">
+            <div class="cart-footer" id="cartFooter">
             <div class="cart-subtotal">
                 <span>Subtotal</span>
                 <span id="cartSubtotal">₦0</span>
             </div>
-            <button class="btn btn-primary btn-block" id="checkoutBtn">Proceed to Checkout</button>
+            <button type="button" class="btn btn-primary btn-block" id="checkoutBtn">Proceed to Checkout</button>
         </div>
     </div>
 
     <!-- Checkout Page -->
     <div class="checkout-page" id="checkoutPage">
         <div class="checkout-container">
-            <button class="back-btn" id="backToShop">
+            <button type="button" class="back-btn" id="backToShop">
                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2">
                     <path d="M15 10H5M5 10l5 5M5 10l5-5"/>
                 </svg>
@@ -407,7 +409,7 @@
                         </div>
                     </div>
 
-                    <button class="btn btn-primary btn-block" id="placeOrderBtn">Place Order</button>
+                    <button type="button" class="btn btn-primary btn-block" id="placeOrderBtn">Place Order</button>
                 </div>
 
                 <!-- Order Summary Sidebar -->
@@ -445,7 +447,7 @@
                 <h2>Thank you, sis!</h2>
                 <p>Your Shindara womenswear order <span id="orderNumber">SH-000000</span> is confirmed. A muse from our atelier will reach you at <span id="orderEmail">you@example.com</span> with fitting details.</p>
                 <p class="confirmation-total">Total Charged: <span id="orderTotal">₦0</span></p>
-                <button class="btn btn-primary" id="continueShopping">Continue Shopping</button>
+                <button type="button" class="btn btn-primary" id="continueShopping">Continue Shopping</button>
             </div>
         </div>
     </div>
@@ -486,8 +488,8 @@
                 </div>
                 <div class="footer-col newsletter-mini">
                     <h4>Fitting List</h4>
-                    <form>
-                        <input type="email" placeholder="email for invites" aria-label="Email for fitting invites" required>
+                    <form action="#" method="post" aria-label="Fitting invites form">
+                        <input type="email" name="email" placeholder="email for invites" aria-label="Email for fitting invites" required>
                         <button type="submit">Join</button>
                     </form>
                 </div>
@@ -499,6 +501,29 @@
             </div>
         </div>
     </footer>
+
+    <script>
+        // small enhancements used across the page
+        (function () {
+            // set current year in footer
+            var yEl = document.getElementById('footerYear');
+            if (yEl) yEl.textContent = new Date().getFullYear();
+
+            // simple newsletter/fitting form handler to avoid navigation during demos
+            var forms = document.querySelectorAll('.newsletter-form, .footer form');
+            forms.forEach(function (form) {
+                form.addEventListener('submit', function (e) {
+                    e.preventDefault();
+                    var email = form.querySelector('input[type="email"]');
+                    if (email && email.value) {
+                        try { window.showToast && window.showToast('Thanks — we will be in touch: ' + email.value); }
+                        catch (err) { alert('Thanks — we will be in touch: ' + email.value); }
+                        email.value = '';
+                    }
+                });
+            });
+        })();
+    </script>
 
     <script src="script.js"></script>
 </body>

@@ -3,31 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Inside the Shindara atelier — craft, fittings, and bespoke services for couture and made-to-order pieces.">
     <title>Inside the Atelier — Shindara Couture</title>
+    <link rel="preload" href="public/hero-image.jpeg" as="image">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body data-default-category="all" data-page="atelier">
-    <div class="breadcrumbs-wrapper">
-        <div class="container">
-            <ol class="breadcrumbs" aria-label="Breadcrumb">
-                <li><a href="index.html">Home</a></li>
-                <li class="current" aria-current="page">Atelier</li>
-            </ol>
-        </div>
-    </div>
-    <!-- Header -->
+    <!-- header -->
     <header class="header">
         <div class="container">
             <div class="header-content">
                 <a href="index.html" class="logo">SHINDARA COUTURE</a>
                 
-                <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                <button type="button" class="mobile-menu-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="siteNav">
                     <span></span>
                     <span></span>
                     <span></span>
                 </button>
 
-                <nav class="nav">
+                <nav id="siteNav" class="nav" role="navigation">
                     <div class="site-menu">
                         <a href="index.html" class="site-link">Home</a>
                         <a href="womenswear.html" class="site-link">Womenswear</a>
@@ -38,13 +32,13 @@
 
                 <div class="header-actions">
                     <div class="search-container">
-                        <input type="text" id="searchInput" placeholder="Search the atelier journal..." class="search-input">
+                        <input type="text" id="searchInput" name="q" aria-label="Search the atelier journal" placeholder="Search the atelier journal..." class="search-input">
                         <svg class="search-icon" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2">
                             <circle cx="8" cy="8" r="6"/>
                             <path d="M13 13l5 5"/>
                         </svg>
                     </div>
-                    <button class="icon-btn cart-toggle" aria-label="Shopping cart">
+                    <button type="button" class="icon-btn cart-toggle" aria-label="Shopping cart">
                         <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M1 1h3l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L19 6H5"/>
                         </svg>
@@ -66,7 +60,7 @@
             </div>
         </div>
         <div class="hero-image">
-            <img src="public/hero-image.jpeg" alt="Inside Shindara Couture atelier">
+            <img src="public/hero-image.jpeg" alt="Inside Shindara Couture atelier" loading="lazy">
         </div>
     </section>
 
@@ -137,9 +131,9 @@
                     <h2>Book a studio visit</h2>
                     <p>Schedule a private consultation with our lead stylist for bridal, made-to-order pieces, or capsule wardrobe planning.</p>
                 </div>
-                <form class="newsletter-form">
+                <form class="newsletter-form" action="#" method="post" aria-label="Request a studio appointment">
                     <label for="newsletterEmail" class="sr-only">Email address</label>
-                    <input type="email" id="newsletterEmail" placeholder="you@example.com" required>
+                    <input type="email" id="newsletterEmail" name="email" aria-label="Email address" placeholder="you@example.com" required>
                     <button type="submit" class="btn btn-primary">Request appointment</button>
                 </form>
             </div>
@@ -178,9 +172,9 @@
                         <div class="option-group">
                             <label for="productQuantity">Quantity</label>
                             <div class="quantity-selector">
-                                <button class="quantity-btn" data-action="decrease">−</button>
+                                <button class="quantity-btn" data-action="decrease" type="button">−</button>
                                 <input type="number" id="productQuantity" value="1" min="1" max="10">
-                                <button class="quantity-btn" data-action="increase">+</button>
+                                <button class="quantity-btn" data-action="increase" type="button">+</button>
                             </div>
                         </div>
                     </div>
@@ -401,6 +395,27 @@
             </div>
         </div>
     </footer>
+
+    <!-- small inline enhancements -->
+    <script>
+        (function () {
+            var yEl = document.getElementById('footerYear');
+            if (yEl) yEl.textContent = new Date().getFullYear();
+
+            var forms = document.querySelectorAll('.newsletter-form, .footer form');
+            forms.forEach(function (form) {
+                form.addEventListener('submit', function (e) {
+                    e.preventDefault();
+                    var email = form.querySelector('input[type="email"]');
+                    if (email && email.value) {
+                        try { window.showToast && window.showToast('Thanks — we will be in touch: ' + email.value); }
+                        catch (err) { alert('Thanks — we will be in touch: ' + email.value); }
+                        email.value = '';
+                    }
+                });
+            });
+        })();
+    </script>
 
     <script src="script.js"></script>
 </body>

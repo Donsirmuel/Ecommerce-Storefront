@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Shindara Couture — considered womenswear, accessories and atelier services, crafted with care and premium fabrics.">
     <title>Shindara Couture — Boutique Couture for Women</title>
+    <link rel="preload" href="public/hero-image.jpeg" as="image">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body data-default-category="all" data-page="home">
@@ -21,13 +23,13 @@
             <div class="header-content">
                 <a href="#" class="logo">SHINDARA COUTURE</a>
                 
-                <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                <button type="button" class="mobile-menu-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="siteNav">
                     <span></span>
                     <span></span>
                     <span></span>
                 </button>
 
-                <nav class="nav">
+                <nav id="siteNav" class="nav" role="navigation">
                     <div class="site-menu">
                         <a href="index.html" class="site-link current">Home</a>
                         <a href="womenswear.html" class="site-link">Womenswear</a>
@@ -38,13 +40,13 @@
 
                 <div class="header-actions">
                     <div class="search-container">
-                        <input type="text" id="searchInput" placeholder="Search styles, fabrics, or moods..." class="search-input">
+                        <input type="text" id="searchInput" name="q" aria-label="Search styles, fabrics, or moods" placeholder="Search styles, fabrics, or moods..." class="search-input">
                         <svg class="search-icon" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2">
                             <circle cx="8" cy="8" r="6"/>
                             <path d="M13 13l5 5"/>
                         </svg>
                     </div>
-                    <button class="icon-btn cart-toggle" aria-label="Shopping cart">
+                    <button type="button" class="icon-btn cart-toggle" aria-label="Shopping cart">
                         <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M1 1h3l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L19 6H5"/>
                         </svg>
@@ -61,12 +63,12 @@
             <h1 class="hero-title">Elevated couture for the modern woman</h1>
             <p class="hero-subtitle">Discover meticulously crafted silhouettes, luxurious fabrics, and seasonless pieces made to be treasured.</p>
             <div class="hero-actions">
-                <button class="btn btn-primary hero-cta">Shop the Collection</button>
+                <button type="button" class="btn btn-primary hero-cta">Shop the Collection</button>
                 <a href="#lookbook" class="btn btn-outline hero-secondary">Explore the Lookbook</a>
             </div>
         </div>
         <div class="hero-image">
-            <img src="public/hero-image.jpeg" alt="Shindara Couture — hero image">
+            <img src="public/hero-image.jpeg" alt="Shindara Couture — hero image" loading="lazy">
         </div>
     </section>
 
@@ -231,11 +233,11 @@
             <div class="newsletter-card">
                 <div class="newsletter-copy">
                     <h2>Stay in the Shindara sisterhood</h2>
-                    <p>Receive owambe styling memos, private Lagos trunk show invites, and first look at bridal capsules.</p>
+                    <p>Receive styling memos, private trunk show invites, and first looks at capsules.</p>
                 </div>
-                <form class="newsletter-form">
+                <form class="newsletter-form" action="#" method="post" aria-label="Join the Shindara newsletter">
                     <label for="newsletterEmail" class="sr-only">Email address</label>
-                    <input type="email" id="newsletterEmail" placeholder="you@example.com" required>
+                    <input type="email" id="newsletterEmail" name="email" aria-label="Email address" placeholder="you@example.com" required>
                     <button type="submit" class="btn btn-primary">Join the circle</button>
                 </form>
             </div>
@@ -274,9 +276,9 @@
                         <div class="option-group">
                             <label for="productQuantity">Quantity</label>
                             <div class="quantity-selector">
-                                <button class="quantity-btn" data-action="decrease">−</button>
+                                <button class="quantity-btn" data-action="decrease" type="button">−</button>
                                 <input type="number" id="productQuantity" value="1" min="1" max="10">
-                                <button class="quantity-btn" data-action="increase">+</button>
+                                <button class="quantity-btn" data-action="increase" type="button">+</button>
                             </div>
                         </div>
                     </div>
@@ -472,6 +474,25 @@
         </div>
     </div>
 
+    <script>
+        (function () {
+            var yEl = document.getElementById('footerYear');
+            if (yEl) yEl.textContent = new Date().getFullYear();
+
+            var forms = document.querySelectorAll('.newsletter-form, .footer form');
+            forms.forEach(function (form) {
+                form.addEventListener('submit', function (e) {
+                    e.preventDefault();
+                    var email = form.querySelector('input[type="email"]');
+                    if (email && email.value) {
+                        try { window.showToast && window.showToast('Thanks — we will be in touch: ' + email.value); }
+                        catch (err) { alert('Thanks — we will be in touch: ' + email.value); }
+                        email.value = '';
+                    }
+                });
+            });
+        })();
+    </script>
     <script src="script.js"></script>
 <footer>
     <div class="footer-container">
@@ -526,3 +547,5 @@
             </div>
         </div>
     </footer>
+</body>
+</html>
