@@ -2,15 +2,15 @@
 const categories = {
   womenswear: {
     name: "Womenswear",
-    subcategories: ["kaftans", "co-ords", "tailoring", "bridal"],
+    subcategories: ["dresses", "trousers", "gowns", "wraps", "knitwear"],
   },
   accessories: {
     name: "Accessories",
-    subcategories: ["gele", "bags", "jewelry", "headwraps"],
+    subcategories: ["bags", "scarves", "jewelry", "belts", "knitwear", "home", "headwraps", "waist-beads"],
   },
   services: {
     name: "Services",
-    subcategories: ["bespoke", "alterations", "consultation"],
+    subcategories: ["bespoke", "alterations"],
   },
 }
 

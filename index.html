@@ -6,6 +6,9 @@
     <meta name="description" content="Shindara Couture — considered womenswear, accessories and atelier services, crafted with care and premium fabrics.">
     <title>Shindara Couture — Boutique Couture for Women</title>
     <link rel="preload" href="public/hero-image.jpeg" as="image">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body data-default-category="all" data-page="home">
@@ -60,15 +63,86 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
-            <h1 class="hero-title">Elevated couture for the modern woman</h1>
-            <p class="hero-subtitle">Discover meticulously crafted silhouettes, luxurious fabrics, and seasonless pieces made to be treasured.</p>
+            <h1 class="hero-title">Modern couture for real days</h1>
+            <p class="hero-subtitle">Shop tailored pieces, daily accessories, and on-call services made in our Lagos studio.</p>
             <div class="hero-actions">
-                <button type="button" class="btn btn-primary hero-cta">Shop the Collection</button>
-                <a href="#lookbook" class="btn btn-outline hero-secondary">Explore the Lookbook</a>
+                <button type="button" class="btn btn-primary hero-cta">Shop the latest</button>
+                <a href="atelier.html" class="btn btn-outline hero-secondary">Visit the studio</a>
+            </div>
+            <div class="hero-meta" aria-label="Maison credentials">
+                <div class="hero-stat">
+                    <span class="hero-stat-number">12+</span>
+                    <span class="hero-stat-label">Years in studio</span>
+                </div>
+                <div class="hero-stat">
+                    <span class="hero-stat-number">280</span>
+                    <span class="hero-stat-label">Clients dressed</span>
+                </div>
+                <div class="hero-stat">
+                    <span class="hero-stat-number">48hr</span>
+                    <span class="hero-stat-label">Fast fittings</span>
+                </div>
+            </div>
+            <div class="hero-trust" aria-label="Featured in publications">
+                <span class="hero-trust-label">Seen in</span>
+                <div class="hero-trust-logos">
+                    <span class="hero-trust-logo">Vogue NG</span>
+                    <span class="hero-trust-logo">Style HQ</span>
+                    <span class="hero-trust-logo">Luxe Africa</span>
+                    <span class="hero-trust-logo">Boda Bride</span>
+                </div>
             </div>
         </div>
         <div class="hero-image">
             <img src="public/hero-image.jpeg" alt="Shindara Couture — hero image" loading="lazy">
+        </div>
+    </section>
+
+    <!-- Category Preview -->
+    <section class="category-preview" aria-labelledby="categoryPreviewHeading">
+        <div class="container">
+            <div class="section-header">
+                <h2 id="categoryPreviewHeading" class="section-title">Shop the edits</h2>
+                <p class="section-subtitle">Pick from womenswear staples, finishing accessories, or book a bespoke slot with the atelier team.</p>
+            </div>
+            <div class="category-grid">
+                <article class="category-card" aria-label="Browse womenswear">
+                    <div class="category-card-media" style="background-image: url('public/elegant-wide-leg-trousers.jpg');"></div>
+                    <div class="category-card-body">
+                        <h3>Womenswear</h3>
+                        <p>Tailored dresses, co-ords, and suiting in ready-to-ship and made-to-order sizes 6–24.</p>
+                        <ul class="category-card-meta">
+                            <li>Weekly new looks</li>
+                            <li>48hr alteration window</li>
+                        </ul>
+                        <a class="category-card-link" href="womenswear.html" aria-label="Browse womenswear edit">Explore womenswear</a>
+                    </div>
+                </article>
+                <article class="category-card" aria-label="Browse accessories">
+                    <div class="category-card-media" style="background-image: url('public/minimalist-leather-crossbody-bag.jpg');"></div>
+                    <div class="category-card-body">
+                        <h3>Accessories</h3>
+                        <p>Scarves, totes, and jewelry curated to match our core silhouettes or giftable on their own.</p>
+                        <ul class="category-card-meta">
+                            <li>Artisan collaborations</li>
+                            <li>Complimentary wrap</li>
+                        </ul>
+                        <a class="category-card-link" href="accessories.html" aria-label="Browse accessories edit">Shop accessories</a>
+                    </div>
+                </article>
+                <article class="category-card" aria-label="Explore the atelier">
+                    <div class="category-card-media" style="background-image: url('public/hero-boutique-collection.jpg');"></div>
+                    <div class="category-card-body">
+                        <h3>Atelier Services</h3>
+                        <p>From bridal couture to capsule rebuilds, reserve fittings with our Lagos and virtual teams.</p>
+                        <ul class="category-card-meta">
+                            <li>3 complimentary fittings</li>
+                            <li>Dedicated concierge</li>
+                        </ul>
+                        <a class="category-card-link" href="atelier.html" aria-label="Explore atelier services">Plan a visit</a>
+                    </div>
+                </article>
+            </div>
         </div>
     </section>
 
@@ -168,6 +242,74 @@
         </div>
     </section>
 
+    <section class="signature-section" id="signature-services">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">What we do best</h2>
+                <p class="section-subtitle">Three promises from our atelier team.</p>
+            </div>
+            <div class="signature-grid">
+                <article class="signature-card">
+                    <figure class="signature-photo">
+                        <img src="public/elegant-linen-shirt-on-hanger.jpg" alt="Tailor steaming a linen dress">
+                    </figure>
+                    <div class="signature-body">
+                        <span class="signature-meta">Fit</span>
+                        <h3>Custom fit, every time</h3>
+                        <p>We pin, adjust, and steam in-house so your outfit feels ready from the first wear.</p>
+                        <ul class="signature-list">
+                            <li>Personal fittings on-site or virtual</li>
+                            <li>48hr alteration promise</li>
+                            <li>Tailor notes stored for future orders</li>
+                        </ul>
+                    </div>
+                </article>
+                <article class="signature-card">
+                    <figure class="signature-photo">
+                        <img src="public/elegant-silk-scarf.png" alt="Close view of a silk scarf">
+                    </figure>
+                    <div class="signature-body">
+                        <span class="signature-meta">Fabric</span>
+                        <h3>Materials with depth</h3>
+                        <p>Silks, linens, and handwoven trims sourced from partners we trust and visit.</p>
+                        <ul class="signature-list">
+                            <li>Small-batch textile partnerships</li>
+                            <li>Seasonal palettes and limited drops</li>
+                            <li>Fabric swatch library by appointment</li>
+                        </ul>
+                    </div>
+                </article>
+                <article class="signature-card">
+                    <figure class="signature-photo">
+                        <img src="public/luxury-merino-sweater.png" alt="Folded knitwear on a table">
+                    </figure>
+                    <div class="signature-body">
+                        <span class="signature-meta">Care</span>
+                        <h3>Support after purchase</h3>
+                        <p>Alterations, cleaning notes, and repairs stay just a message away.</p>
+                        <ul class="signature-list">
+                            <li>Care guides sent after delivery</li>
+                            <li>Priority repair queue for members</li>
+                            <li>Complimentary steaming before events</li>
+                        </ul>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <div class="press-strip" aria-label="Press features">
+        <div class="container">
+            <span class="press-label">Seen in</span>
+            <div class="press-logos">
+                <span class="press-logo">African Luxe</span>
+                <span class="press-logo">Maison Journal</span>
+                <span class="press-logo">Editors' Guild</span>
+                <span class="press-logo">The Stylist</span>
+            </div>
+        </div>
+    </div>
+
     <!-- Lookbook Section -->
     <section class="lookbook-section" id="lookbook">
         <div class="container">
@@ -210,20 +352,103 @@
             <div class="highlights-grid">
                 <div class="highlight">
                     <div class="highlight-icon" aria-hidden="true">✧</div>
-                    <h3>Made in Nigeria</h3>
-                    <p>Handcrafted in our Yaba atelier with fabrics sourced from Abeokuta dyers and Northern weavers.</p>
+                    <h3>Made in Lagos</h3>
+                    <p>All garments leave our Yaba studio with fabrics from partners we know by name.</p>
                 </div>
                 <div class="highlight">
                     <div class="highlight-icon" aria-hidden="true">∞</div>
-                    <h3>Atelier Fit Promise</h3>
-                    <p>Complimentary fittings in Lagos with optional virtual sessions for sisters across the diaspora.</p>
+                    <h3>Fit promise</h3>
+                    <p>Every order includes tweaks, steaming, and optional video follow-up for peace of mind.</p>
                 </div>
                 <div class="highlight">
                     <div class="highlight-icon" aria-hidden="true">☾</div>
-                    <h3>Cultural Capsules</h3>
-                    <p>Limited asoebi collectives released around owambe season, featuring collaborative beadwork.</p>
+                    <h3>Limited drops</h3>
+                    <p>Seasonal capsules arrive in small runs, with custom beading for special events.</p>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <section class="testimonials-section" aria-labelledby="testimonialsHeading">
+        <div class="container">
+            <div class="section-header">
+                <h2 id="testimonialsHeading" class="section-title">Good words from clients</h2>
+                <p class="section-subtitle">Real notes from fittings across Lagos, Abuja, and abroad.</p>
+            </div>
+            <div class="testimonials-grid">
+                <article class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar">
+                            <img src="public/hero-boutique-collection.jpg" alt="Client Amarachi smiling in a gown">
+                        </div>
+                        <div class="testimonial-author">
+                            <strong>Amarachi</strong>
+                            <span>Lagos bride</span>
+                        </div>
+                    </div>
+                    <p class="testimonial-quote">“Two fittings, zero stress. My gowns landed pressed and ready for the weekend.”</p>
+                </article>
+                <article class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar">
+                            <img src="public/minimalist-leather-crossbody-bag.jpg" alt="Client Kehinde holding a Shindara tote">
+                        </div>
+                        <div class="testimonial-author">
+                            <strong>Kehinde</strong>
+                            <span>London stylist</span>
+                        </div>
+                    </div>
+                    <p class="testimonial-quote">“They ship edits to my doorstep and pin adjustments over video. It keeps me camera ready.”</p>
+                </article>
+                <article class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar">
+                            <img src="public/artisan-wooden-serving-board.jpg" alt="Client Halima reviewing fabric swatches">
+                        </div>
+                        <div class="testimonial-author">
+                            <strong>Halima</strong>
+                            <span>Abuja collector</span>
+                        </div>
+                    </div>
+                    <p class="testimonial-quote">“Clear fabric options, honest timelines, and kind follow-up. I felt looked after.”</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Client Journey -->
+    <section class="process-section" aria-labelledby="processHeading">
+        <div class="container">
+            <div class="section-header">
+                <h2 id="processHeading" class="section-title">How your order comes together</h2>
+                <p class="section-subtitle">A clear path from first browse to final steam, whether you shop online or visit the atelier.</p>
+            </div>
+            <ol class="process-steps">
+                <li class="process-step">
+                    <span class="process-step-number">01</span>
+                    <div class="process-step-body">
+                        <h3>Explore & shortlist</h3>
+                        <p>Browse the womenswear and accessories edits, save looks, or chat with concierge for styling guidance.</p>
+                        <span class="process-step-meta">Digital lookbook • Fabric swatch requests</span>
+                    </div>
+                </li>
+                <li class="process-step">
+                    <span class="process-step-number">02</span>
+                    <div class="process-step-body">
+                        <h3>Fit & refine</h3>
+                        <p>Book an in-person or virtual fitting. We pin adjustments, log preferences, and confirm timelines.</p>
+                        <span class="process-step-meta">48hr alteration window • Measurement archives</span>
+                    </div>
+                </li>
+                <li class="process-step">
+                    <span class="process-step-number">03</span>
+                    <div class="process-step-body">
+                        <h3>Finishing & delivery</h3>
+                        <p>Your order is steamed, packed, and sent with care notes, followed by optional post-event touch-ups.</p>
+                        <span class="process-step-meta">Complimentary steaming • Priority aftercare</span>
+                    </div>
+                </li>
+            </ol>
         </div>
     </section>
 
@@ -232,14 +457,29 @@
         <div class="container">
             <div class="newsletter-card">
                 <div class="newsletter-copy">
-                    <h2>Stay in the Shindara sisterhood</h2>
-                    <p>Receive styling memos, private trunk show invites, and first looks at capsules.</p>
+                    <h2>Join our mailing list</h2>
+                    <p>Get drop alerts, fit clinics, and early slots for studio visits.</p>
                 </div>
                 <form class="newsletter-form" action="#" method="post" aria-label="Join the Shindara newsletter">
                     <label for="newsletterEmail" class="sr-only">Email address</label>
                     <input type="email" id="newsletterEmail" name="email" aria-label="Email address" placeholder="you@example.com" required>
                     <button type="submit" class="btn btn-primary">Join the circle</button>
                 </form>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section" aria-labelledby="atelierCtaHeading">
+        <div class="container">
+            <div class="cta-panel">
+                <div>
+                    <h2 id="atelierCtaHeading">Need a private fitting?</h2>
+                    <p>Pick a date that works. We’ll prep rails in your size, note styling ideas, and keep a tailor on standby.</p>
+                </div>
+                <div class="cta-actions">
+                    <a href="atelier.html#atelier-visit" class="btn btn-primary">Book a fitting</a>
+                    <a href="womenswear.html" class="btn btn-outline">Browse womenswear</a>
+                </div>
             </div>
         </div>
     </section>
@@ -494,16 +734,12 @@
         })();
     </script>
     <script src="script.js"></script>
-<footer>
-    <div class="footer-container">
-    <p>&copy; 2025 SHINDARA COUTURE. All rights reserved.</p>
-    </div>
-    <footer>
+    <footer class="footer site-footer">
         <div class="container footer-inner">
             <div class="footer-grid">
                 <div class="footer-brand">
                     <h3>Shindara Couture</h3>
-                    <p>Contemporary couture and refined essentials, crafted with attention to detail and enduring materials.</p>
+                    <p>Luxury womenswear and couture services handcrafted for modern icons across Lagos, Abuja, and the diaspora.</p>
                 </div>
                 <div class="footer-col">
                     <h4>Shop</h4>
@@ -515,21 +751,21 @@
                     </ul>
                 </div>
                 <div class="footer-col">
-                    <h4>About</h4>
+                    <h4>Atelier</h4>
                     <ul class="footer-links">
                         <li><a href="atelier.html#craft-philosophy">Craft Philosophy</a></li>
-                        <li><a href="atelier.html#atelier-rituals">Rituals</a></li>
-                        <li><a href="atelier.html#atelier-visit">Book Visit</a></li>
+                        <li><a href="atelier.html#atelier-rituals">Studio Rituals</a></li>
+                        <li><a href="atelier.html#atelier-visit">Book a Visit</a></li>
                         <li><a href="#">Press Kit</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
-                    <h4>Support</h4>
+                    <h4>Client Care</h4>
                     <ul class="footer-links">
                         <li><a href="#">Size Guide</a></li>
                         <li><a href="#">Shipping & Returns</a></li>
                         <li><a href="#">Care Instructions</a></li>
-                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">Contact Concierge</a></li>
                     </ul>
                 </div>
                 <div class="footer-col newsletter-mini">
@@ -541,8 +777,8 @@
                 </div>
             </div>
             <div class="footer-meta">
-                <span>&copy; <span id="footerYear">2025</span> Shindara Couture</span>
-                <span>Made with ♥ in our studio</span>
+                <span>&copy; <span id="footerYear">2025</span> Shindara Couture Maison</span>
+                <span>By-appointment studio • Lagos & Virtual</span>
                 <span><a href="#">Terms</a> • <a href="#">Privacy</a></span>
             </div>
         </div>

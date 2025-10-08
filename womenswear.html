@@ -6,6 +6,9 @@
     <meta name="description" content="Shindara Couture — considered womenswear: tailored separates, kaftans, and elevated basics crafted from luxurious fabrics.">
     <title>Womenswear — Shindara Couture</title>
     <link rel="preload" href="public/hero-image.jpeg" as="image">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body data-default-category="womenswear" data-page="womenswear">
@@ -61,15 +64,73 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
-            <h1 class="hero-title">Fluid tailoring for evening and day</h1>
-            <p class="hero-subtitle">Explore kaftans, co-ords, and tailored separates crafted from luxurious fabrics and considered detailing.</p>
+            <h1 class="hero-title">Tailored womenswear for day and night</h1>
+            <p class="hero-subtitle">Shop dresses, co-ords, and suiting made in Lagos with fittings that feel easy.</p>
             <div class="hero-actions">
                 <button class="btn btn-primary hero-cta">View signature looks</button>
                 <a href="#atelier-notes" class="btn btn-outline hero-secondary">Request a fitting</a>
             </div>
+            <div class="hero-meta" aria-label="Womenswear maison stats">
+                <div class="hero-stat">
+                    <span class="hero-stat-number">18</span>
+                    <span class="hero-stat-label">Looks on rotation</span>
+                </div>
+                <div class="hero-stat">
+                    <span class="hero-stat-number">48hr</span>
+                    <span class="hero-stat-label">Alteration window</span>
+                </div>
+                <div class="hero-stat">
+                    <span class="hero-stat-number">6–24</span>
+                    <span class="hero-stat-label">Sizes ready</span>
+                </div>
+            </div>
+            <div class="hero-trust" aria-label="Fittings available across regions">
+                <span class="hero-trust-label">Fittings</span>
+                <div class="hero-trust-logos">
+                    <span class="hero-trust-logo">Lagos</span>
+                    <span class="hero-trust-logo">Abuja</span>
+                    <span class="hero-trust-logo">Virtual</span>
+                </div>
+            </div>
         </div>
         <div class="hero-image">
             <img src="public/hero-image.jpeg" alt="Womenswear hero image" loading="lazy">
+        </div>
+    </section>
+
+    <!-- Collection Overview -->
+    <section class="collection-overview" aria-labelledby="collectionOverviewHeading">
+        <div class="container">
+            <div class="section-header">
+                <h2 id="collectionOverviewHeading" class="section-title">Inside this season&rsquo;s womenswear</h2>
+                <p class="section-subtitle">A mix of ready-to-wear staples, made-to-order signatures, and fittings that travel with you.</p>
+            </div>
+            <div class="overview-grid">
+                <article class="overview-card">
+                    <h3>Ready-to-wear</h3>
+                    <p>18 looks in stock, refreshed weekly and pressed before dispatch.</p>
+                    <ul class="overview-list">
+                        <li>Sizes 6&ndash;24 available to ship</li>
+                        <li>Same-day pick up in Lagos</li>
+                    </ul>
+                </article>
+                <article class="overview-card">
+                    <h3>Made-to-order</h3>
+                    <p>Signature kaftans, bridal gowns, and tailored suits delivered on a four-week cycle.</p>
+                    <ul class="overview-list">
+                        <li>Dedicated atelier liaison</li>
+                        <li>Three complimentary fittings</li>
+                    </ul>
+                </article>
+                <article class="overview-card">
+                    <h3>Services</h3>
+                    <p>Virtual styling, alteration clinics, and concierge delivery across Lagos and Abuja.</p>
+                    <ul class="overview-list">
+                        <li>48hr alteration window</li>
+                        <li>Post-event refresh & repairs</li>
+                    </ul>
+                </article>
+            </div>
         </div>
     </section>
 
@@ -169,6 +230,85 @@
             </div>
         </div>
     </section>
+
+    <section class="capsule-section" aria-labelledby="capsuleHeading">
+        <div class="container">
+            <div class="section-header">
+                <h2 id="capsuleHeading" class="section-title">Capsule styling ideas</h2>
+                <p class="section-subtitle">Ready-to-wear pairings to cover a week of Lagos living.</p>
+            </div>
+            <div class="capsule-grid">
+                <article class="capsule-card">
+                    <div class="capsule-media" style="background-image: url('public/elegant-linen-shirt-on-hanger.jpg');"></div>
+                    <div class="capsule-body">
+                        <span class="capsule-tag">Monday meeting</span>
+                        <h3>Structured linen suit</h3>
+                        <p>Double-vent blazer and wide-leg trousers in breathable linen blend.</p>
+                        <ul class="capsule-list">
+                            <li>Pair with the Obalende silk shell</li>
+                            <li>Add Brass Horizon hoops</li>
+                            <li>Finish with the Marina tote</li>
+                        </ul>
+                    </div>
+                </article>
+                <article class="capsule-card">
+                    <div class="capsule-media" style="background-image: url('public/luxury-merino-sweater.png');"></div>
+                    <div class="capsule-body">
+                        <span class="capsule-tag">Midweek ease</span>
+                        <h3>Knit co-ord duo</h3>
+                        <p>Merino knit set with soft drape and subtle shimmer at the cuffs.</p>
+                        <ul class="capsule-list">
+                            <li>Layer over the Ayo camisole</li>
+                            <li>Style with Bali leather slides</li>
+                            <li>Carry the Indigo raffia bag</li>
+                        </ul>
+                    </div>
+                </article>
+                <article class="capsule-card">
+                    <div class="capsule-media" style="background-image: url('public/hero-boutique-collection.jpg');"></div>
+                    <div class="capsule-body">
+                        <span class="capsule-tag">Weekend event</span>
+                        <h3>Embellished evening gown</h3>
+                        <p>Floor-length column with detachable overskirt and hand-beaded neckline.</p>
+                        <ul class="capsule-list">
+                            <li>Secure a virtual fitting for tweaks</li>
+                            <li>Request midnight blue or coral</li>
+                            <li>Coordinate with the Ikoyi minaudière</li>
+                        </ul>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section class="fabric-stories" aria-labelledby="fabricHeading">
+        <div class="container">
+            <div class="section-header">
+                <h2 id="fabricHeading" class="section-title">Fabric stories</h2>
+                <p class="section-subtitle">Swatches you can request ahead of fittings to match the season.</p>
+            </div>
+            <div class="fabric-grid">
+                <article class="fabric-card">
+                    <div class="fabric-icon" aria-hidden="true">🌿</div>
+                    <h3>Lagos-weight linen</h3>
+                    <p>Breathable flax-linen blend with added viscose for drape and crease recovery.</p>
+                    <span class="fabric-meta">Colours: palm, ecru, midnight</span>
+                </article>
+                <article class="fabric-card">
+                    <div class="fabric-icon" aria-hidden="true">✨</div>
+                    <h3>Silk crepe luxe</h3>
+                    <p>Midweight silk crepe with matte sheen, ideal for evening wear and bridal separates.</p>
+                    <span class="fabric-meta">Colours: champagne, coral, obsidian</span>
+                </article>
+                <article class="fabric-card">
+                    <div class="fabric-icon" aria-hidden="true">🧵</div>
+                    <h3>Aso-oke jacquard</h3>
+                    <p>Handloom jacquard from Ilorin artisans, finished with soft backing for comfort.</p>
+                    <span class="fabric-meta">Colours: bronze, ivory, teal</span>
+                </article>
+            </div>
+        </div>
+    </section>
     </main>
     <!-- Atelier Notes -->
     <section class="brand-highlights" id="atelier-notes">
@@ -177,17 +317,17 @@
                 <div class="highlight">
                     <div class="highlight-icon" aria-hidden="true">✧</div>
                     <h3>Bespoke Fittings</h3>
-                    <p>Reserve a private fitting with our tailor. Alterations and made-to-order options available.</p>
+                    <p>Book a slot with our tailor. We log every tweak while you fit.</p>
                 </div>
                 <div class="highlight">
                     <div class="highlight-icon" aria-hidden="true">∞</div>
                     <h3>Fabric Library</h3>
-                    <p>Explore premium fabric swatches including silk, linen, and luxurious blends selected for longevity.</p>
+                    <p>Browse silk, linen, and textured blends that stand up to repeat wear.</p>
                 </div>
                 <div class="highlight">
                     <div class="highlight-icon" aria-hidden="true">☾</div>
                     <h3>Concierge Service</h3>
-                    <p>Personalised styling, expedited alterations, and private consultations are available by request.</p>
+                    <p>Request styling notes, rush fixes, or a quick virtual check-in anytime.</p>
                 </div>
             </div>
         </div>
@@ -198,7 +338,7 @@
         <div class="container">
             <div class="lookbook-intro">
                 <h2 class="section-title">Lookbook</h2>
-                <p class="section-subtitle">Styling stories for engagements, brunches, and evenings — dressing the modern woman thoughtfully.</p>
+                <p class="section-subtitle">Three outfits styled for moments across Lagos days and nights.</p>
             </div>
             <div class="lookbook-grid">
                 <article class="lookbook-card">
@@ -206,7 +346,7 @@
                     <div class="lookbook-content">
                         <span class="lookbook-tag">Engagement</span>
                         <h3>Coral Kaftan</h3>
-                        <p>Delicate beading over chiffon for elevated daytime celebrations.</p>
+                        <p>Light beading over chiffon for daytime ceremonies.</p>
                     </div>
                 </article>
                 <article class="lookbook-card">
@@ -214,7 +354,7 @@
                     <div class="lookbook-content">
                         <span class="lookbook-tag">Brunch</span>
                         <h3>Co-ord Ensemble</h3>
-                        <p>Structured blouse and palazzo trousers for relaxed yet refined daywear.</p>
+                        <p>Structured blouse and wide trousers for an easy brunch set.</p>
                     </div>
                 </article>
                 <article class="lookbook-card">
@@ -222,7 +362,7 @@
                     <div class="lookbook-content">
                         <span class="lookbook-tag">Evening</span>
                         <h3>Statement Gown</h3>
-                        <p>A sweeping evening gown with optional detachable train and embellished finishes.</p>
+                        <p>A sweeping gown with an optional train and hand-finished beading.</p>
                     </div>
                 </article>
             </div>
@@ -234,8 +374,8 @@
         <div class="container">
             <div class="newsletter-card">
                 <div class="newsletter-copy">
-                    <h2>Join the womenswear circle</h2>
-                    <p>Get atelier diaries, fabric drops, and VIP invites to upcoming bridal capsules.</p>
+                    <h2>Join the womenswear list</h2>
+                    <p>Get fit clinic invites, new fabric notes, and bridal previews.</p>
                 </div>
                 <form class="newsletter-form" action="#" method="post" aria-label="Join the womenswear newsletter">
                     <label for="newsletterEmail" class="sr-only">Email address</label>
@@ -452,15 +592,15 @@
         </div>
     </div>
 
-    <footer>
+    <footer class="footer site-footer">
         <div class="container footer-inner">
             <div class="footer-grid">
                 <div class="footer-brand">
                     <h3>Shindara Couture</h3>
-                    <p>Sculpted silhouettes and bespoke tailoring from our Lagos atelier.</p>
+                    <p>Tailoring, bridal, and everyday pieces made in our Lagos atelier.</p>
                 </div>
                 <div class="footer-col">
-                    <h4>Explore</h4>
+                    <h4>Shop</h4>
                     <ul class="footer-links">
                         <li><a href="index.html">Home</a></li>
                         <li><a href="womenswear.html">Womenswear</a></li>
@@ -471,19 +611,19 @@
                 <div class="footer-col">
                     <h4>Atelier</h4>
                     <ul class="footer-links">
-                        <li><a href="atelier.html#craft-philosophy">Philosophy</a></li>
-                        <li><a href="atelier.html#atelier-rituals">Rituals</a></li>
-                        <li><a href="atelier.html#atelier-visit">Visit</a></li>
-                        <li><a href="#">Journal</a></li>
+                        <li><a href="atelier.html#craft-philosophy">Craft Philosophy</a></li>
+                        <li><a href="atelier.html#atelier-rituals">Studio Rituals</a></li>
+                        <li><a href="atelier.html#atelier-visit">Book a Visit</a></li>
+                        <li><a href="#">Collaborations</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
-                    <h4>Care</h4>
+                    <h4>Client Care</h4>
                     <ul class="footer-links">
-                        <li><a href="#">Fabrics</a></li>
-                        <li><a href="#">Care Guide</a></li>
-                        <li><a href="#">Tailoring</a></li>
-                        <li><a href="#">Support</a></li>
+                        <li><a href="#">Size Guide</a></li>
+                        <li><a href="#">Care & Preservation</a></li>
+                        <li><a href="#">Alteration Services</a></li>
+                        <li><a href="#">Concierge Support</a></li>
                     </ul>
                 </div>
                 <div class="footer-col newsletter-mini">
@@ -495,8 +635,8 @@
                 </div>
             </div>
             <div class="footer-meta">
-                <span>&copy; <span id="footerYear">2025</span> Shindara Couture</span>
-                <span>Atelier • By appointment</span>
+                <span>&copy; <span id="footerYear">2025</span> Shindara Couture Maison</span>
+                <span>By-appointment salon • Lagos & Virtual</span>
                 <span><a href="#">Terms</a> • <a href="#">Privacy</a></span>
             </div>
         </div>
